@@ -1,5 +1,4 @@
-import "./App.css"
-import Form from "./components/Form/Form"
+import Form from "./components/Form/Form";
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         ao se increver receberá dicas
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
