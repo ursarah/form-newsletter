@@ -7,7 +7,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [agree, setAgree] = useState(false);
 
-  const [error, setError] = useState<User | null>(false);
+  const [error, setError] = useState<User | null>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -20,9 +20,10 @@ const Form = () => {
     const validateErros = validate(data);
 
     if (Object.keys(validateErros).length > 0) {
-      alert("Tem erros");
+      setError(validateErros);
       return;
     }
+    alert("obrigado por se inscrever");
   };
 
   return (
