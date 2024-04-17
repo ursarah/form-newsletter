@@ -17,12 +17,19 @@ const Form = () => {
       agree,
     };
 
+    setError(null);
+
     const validateErros = validate(data);
 
     if (Object.keys(validateErros).length > 0) {
       setError(validateErros);
       return;
     }
+
+    setName("");
+    setEmail("");
+    setAgree(false);
+
     alert("obrigado por se inscrever");
   };
 
@@ -39,6 +46,9 @@ const Form = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        {error?.name && (
+          <small className='text-xs text-red-500 mt-1'>{error?.name}</small>
+        )}
       </div>
       <div className='flex flex-col'>
         <label className='text-sm' htmlFor='email'>
@@ -51,6 +61,9 @@ const Form = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {error?.email && (
+          <small className='text-xs text-red-500 mt-1'>{error?.email}</small>
+        )}
       </div>
       <div className='flex flex-col'>
         <a href='#' className='text-xs underline mb-2'>
@@ -66,6 +79,9 @@ const Form = () => {
             Concordo com os termos
           </label>
         </div>
+        {error?.agree && (
+          <small className='text-xs text-red-500 mt-1'>{error?.agree}</small>
+        )}
       </div>
       <button className='bg-slate-600 hover:bg-slate-500 font-medium text-sm py-2 px-4 rounded-lg text-white'>
         Cadastrar
